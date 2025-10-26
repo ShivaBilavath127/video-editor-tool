@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+<title>Video Tools</title>
+<style>
+
+</style>
+<script>
+function showSection(sectionId) {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('cutter').style.display = 'none';
+    document.getElementById('merger').style.display = 'none';
+    document.getElementById(sectionId).style.display = 'block';
+}
+function goHome() {
+    document.getElementById('home').style.display = 'block';
+    document.getElementById('cutter').style.display = 'none';
+    document.getElementById('merger').style.display = 'none';
+}
+</script>
+</head>
+<body>
+
+<!-- Home Section -->
+<section id="home" style="display:block;">
+<h1>🎬 Video Tools</h1>
+<button onclick="showSection('cutter')">✂️ Video Cutter</button>
+<button onclick="showSection('merger')">🔗 Merge Videos</button>
+</section>
+
+<!-- Video Cutter Section -->
+<section id="cutter">
+  <h1>✂️ Video Cutter</h1>
+  <form action="/cut" method="POST" enctype="multipart/form-data">
+    <input type="file" name="video" accept="video/*" required><br><br>
+    
+    <div class="start-time-div">
+    <h3 style="color: rgb(193, 43, 43); font-style: italic; font-size: 30px">Start Time</h3>
+    <div class="time-input">
+      <label>Hours:</label>
+      <input type="number" name="start_h" min="0" value="0">
+      <label>Minutes:</label>
+      <input type="number" name="start_m" min="0" max="59" value="0">
+      <label>Seconds:</label>
+      <input type="number" name="start_s" min="0" max="59" value="0">
+    </div>
+    </div>
+
+    <div class="start-time-div">
+    <h3 style="color: rgb(227, 15, 22); font-style: italic; font-size: 30px">End Time</h3>
+    <div class="time-input">
+      <label>Hours:</label>
+      <input type="number" name="end_h" min="0" value="0">
+      <label>Minutes:</label>
+      <input type="number" name="end_m" min="0" max="59" value="0">
+      <label>Seconds:</label>
+      <input type="number" name="end_s" min="0" max="59" value="0">
+    </div>
+    </div>
+
+    <br>
+    <button type="submit">Cut Video</button>
+  </form>
+  <br>
+  <button onclick="goHome()">⬅️ Back Home</button>
+</section>
+
+
+<!-- Merge Videos Section -->
+<section id="merger">
+<h1>🔗 Merge Videos</h1>
+<form action="/merge" method="POST" enctype="multipart/form-data">
+Video 1: <input type="file" name="video1" accept="video/*" required>
+<br>
+Video 2: <input type="file" name="video2" accept="video/*" required>
+<br>
+<button type="submit">Merge Videos</button>
+</form>
+<br>
+<button onclick="goHome()">⬅️ Back Home</button>
+</section>
+
+</body>
+</html>

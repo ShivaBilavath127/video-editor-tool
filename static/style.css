@@ -1,0 +1,138 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+/* Header */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
+button {
+    background-color:#ff6b81;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+button:hover {
+    background-color: #ff4757;
+    transform: translateY(-3px);
+}
+
+/* Forms styling */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 35px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+form input[type="file"],
+form input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* Section styling */
+section {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Show active section */
+section.active {
+    display: block;
+}
+
+/* Back button special styling */
+form + button {
+    background-color: #1dd1a1;
+}
+form + button:hover {
+    background-color: #10ac84;
+}
+
+.time-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.time-input label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.time-input input {
+  width: 60px;
+  padding: 8px;
+  text-align: center;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.time-input input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+.start-time-div{
+    background-color: #1dd1a1;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    button { font-size: 1rem; padding: 10px 20px; }
+    form { padding: 20px; }
+}
